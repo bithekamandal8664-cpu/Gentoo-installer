@@ -41,7 +41,7 @@ int main() {
          system(DISK6);          
          printf("\nfilesystem mounted, entering chroot.....\n");          
          system("cp --dereference /etc/resolv.conf /mnt/gentoo/etc/resolv.conf");          
-         system("sudo chroot /mnt/gentoo /bin/bash -c 'source /etc/profile && export PS1=\"(chroot)$PS1\" && exec /bin/bash'");       
+         system("sudo chroot /mnt/gentoo /bin/bash -c \"source /etc/profile && export PS1='(chroot) $PS1' && /bin/bash\"");       
    return 0;        
 }        
               
