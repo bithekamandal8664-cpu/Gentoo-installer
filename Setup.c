@@ -10,7 +10,7 @@ int main() {
     char cmd1[100];
 
   printf("which kernel you want to run?\n");
-  printf("1. gentoo-dist-bin\n");
+  printf("1. gentoo-kernel-bin\n");
   printf("2. zenkernel\n");
   printf("3. copying kernel from LiveGUI\n");
   printf("choose (in numbers):- ");
@@ -18,7 +18,7 @@ int main() {
   switch (kernel) {
            case 1:
             printf("installing kernel!\n");
-            system("emerge sys-kernel/gentoo-dist-bin");
+            system("emerge sys-kernel/gentoo-kernel-bin");
             break;
            case 2:
             printf("installing kernel!\n");
@@ -46,6 +46,8 @@ int main() {
   else {
       return 0;
   }
+  printf("installing firmware....\n");
+  system("emerge sys-kernel/linux-firmware");
   printf(" enter your root password!\n");
   system("passwd root");
 
