@@ -7,7 +7,7 @@ int main() {
     int kernel;
     char GRUB[100];
     char username [64];
-    char cmd1[100];
+    char cmd[100];
 
   printf("which kernel you want to run?\n");
   printf("1. gentoo-kernel-bin\n");
@@ -41,7 +41,6 @@ int main() {
            printf("applying grub\n");
            system("grub-install --target=x86_64-efi --efi-directory=/boot/efi");
            system("grub-mkconfig -o /boot/grub/grub.cfg");
-           continue;
   }
   else {
       return 0;
