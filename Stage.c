@@ -21,7 +21,7 @@ int main() {
          system(PARTITION);          
          printf("making mount folder\n");          
          system("sudo mkdir /mnt/gentoo");
-         printf("mounting disks and filesystems..");           
+         printf("mounting disks...");           
          snprintf(DISK1, sizeof(DISK1), "sudo mount %s /mnt/gentoo", disk);
          system(DISK1);
          system("STAGE3_URL=$(curl -s https://distfiles.gentoo.org/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt | grep -v '^#' | awk '{print $1}')
