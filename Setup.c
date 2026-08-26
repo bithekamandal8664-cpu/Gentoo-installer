@@ -22,7 +22,11 @@ int main() {
             break;
            case 2:
             printf("installing kernel!\n");
+            system("echo \"sys-kernel/zen-sources ~amd64\" >> /etc/portage/package.accept_keywords/zen-kernel");
             system("emerge sys-kernel/zen-sources");
+            system("emerge sys-kernel/genkernel");
+            system("eselect kernel set $(eselect kernel list | grep 'zen' | awk -F'[][]' '{print $2}' | tr -d ' ')");
+            system("genkernel all");
             break;
            case 3:
             printf("applying kernel!\n");
