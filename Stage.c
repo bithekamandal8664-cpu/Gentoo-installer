@@ -26,5 +26,6 @@ int main() {
          system(DISK1);
          system("STAGE3_URL=$(curl -s https://distfiles.gentoo.org/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt | grep -v '^#' | awk '{print $1}') && "
        "wget -qO- \"https://distfiles.gentoo.org/releases/amd64/autobuilds/${STAGE3_URL}\" | sudo tar -xPF - -C /mnt/gentoo --xattrs-include='*.*' --numeric-owner");
+         system("./Chroot");
 return 0;
 }
