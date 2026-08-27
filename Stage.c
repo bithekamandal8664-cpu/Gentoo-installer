@@ -17,7 +17,7 @@ int main() {
          fgets(disk, sizeof(disk), stdin);     
          disk[strcspn(disk, "\n")] = '\0';         
          printf("destroying cutely.......");          
-         snprintf(PARTITION, sizeof(PARTITION), "mkfs.%s %s", partition, disk);        
+         snprintf(PARTITION, sizeof(PARTITION), "sudo mkfs.%s %s", partition, disk);        
          system(PARTITION);          
          printf("making mount folder\n");          
          system("sudo mkdir /mnt/gentoo");
