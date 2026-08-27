@@ -24,8 +24,8 @@ int main() {
          printf("mounting disks...");           
          snprintf(DISK1, sizeof(DISK1), "sudo mount %s /mnt/gentoo", disk);
          system(DISK1);
-         system("STAGE3_URL=$(curl -s https://distfiles.gentoo.org/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt | grep -v '^#' | awk '{print $1}') && "
-       "wget -qO- \"https://distfiles.gentoo.org/releases/amd64/autobuilds/${STAGE3_URL}\" | sudo tar -xPF - -C /mnt/gentoo --xattrs-include='*.*' --numeric-owner");
+         system("sudo wget -P /mnt/gentoo https://downloads.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-latest.tar.xz");
+         system("sudo tar xpvf /mnt/gentoo/stage3-*.tar.xz -C /mnt/gentoo --xattrs-include='*.*' --numeric-owner");
          system("./Chroot");
 return 0;
 }
