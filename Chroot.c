@@ -19,7 +19,9 @@ int main() {
          system(DISK5);          
          system(DISK6);          
          printf("\nfilesystem mounted, entering chroot.....\n");          
-         system("sudo cp --dereference /etc/resolv.conf /mnt/gentoo/etc/resolv.conf");          
+         system("sudo cp --dereference /etc/resolv.conf /mnt/gentoo/etc/resolv.conf");
+         system("sudo cp ~/gentoo-installer/Setup.c /mnt/gentoo/root/Setup.c");
+         system("sudo gcc /mnt/gentoo/root/Setup.c -o /mnt/gentoo/Setup");
          system("sudo chroot /mnt/gentoo /bin/bash -c \"source /etc/profile && export PS1='(chroot) $PS1' && /bin/bash\"");       
    return 0;        
 }        
