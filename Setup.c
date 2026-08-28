@@ -8,13 +8,13 @@ int main() {
     char GRUB[100];
     char username [64];
     char cmd[100];
-
+  system("emerge-webrsync");
   printf("which kernel you want to run?\n");
   printf("1. gentoo-kernel-bin\n");
   printf("2. zenkernel\n");
   printf("3. copying kernel from LiveGUI\n");
   printf("choose (in numbers):- ");
-  scanf("%d" &kernel);
+  scanf("%d", &kernel);
   switch (kernel) {
            case 1:
             printf("installing kernel!\n");
