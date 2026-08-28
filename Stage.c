@@ -25,7 +25,7 @@ int main() {
          snprintf(DISK1, sizeof(DISK1), "sudo mount %s /mnt/gentoo", disk);
          system(DISK1);
          system("wget -qO /tmp/stage3.txt https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/latest-stage3-amd64-desktop-openrc.txt");
-         system("wget -P /mnt/gentoo \"https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/$(awk '/^stage3-amd64-desktop-openrc-.*\\.tar\\.xz / {print $1; exit}' /tmp/stage3.txt)\"");
+         system("sudo wget -P /mnt/gentoo \"https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/$(awk '/^stage3-amd64-desktop-openrc-.*\\.tar\\.xz / {print $1; exit}' /tmp/stage3.txt)\"");
          system("sudo tar xpvf /mnt/gentoo/stage3-*.tar.xz -C /mnt/gentoo --xattrs-include='*.*' --numeric-owner");
          system("./Chroot");
 return 0;
