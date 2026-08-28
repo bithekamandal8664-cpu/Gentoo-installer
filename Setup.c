@@ -60,7 +60,7 @@ int main() {
            case 1:
             printf("installing kernel!\n");
             system("mkdir -p /etc/portage/package.accept_keywords");
-            system("echo 'sys-kernel/installkernel dracut' >> /etc/portage/package.use/installkernel");
+            system("echo 'sys-kernel/installkernel dracut' >> /etc/portage/package.accept_keywords/installkernel");
             system("emerge --autounmask-write=y --autounmask-continue sys-kernel/gentoo-kernel-bin");
             break;
            case 2:
