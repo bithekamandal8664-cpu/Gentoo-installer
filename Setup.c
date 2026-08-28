@@ -81,6 +81,8 @@ int main() {
   scanf("%s", GRUB);
   if (strcmp(GRUB, "yes") == 0) {
            printf("installing GRUB!\n");
+           system("mkdir -p /boot/efi");
+           system("mountpoint -q /boot/efi || mount /dev/sda1 /boot/efi");
            system("emerge sys-boot/grub");
            printf("applying grub\n");
            system("grub-install --target=x86_64-efi --efi-directory=/boot/efi");
