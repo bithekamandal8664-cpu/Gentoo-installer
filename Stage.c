@@ -24,7 +24,7 @@ int main() {
          printf("mounting disks...");           
          snprintf(DISK1, sizeof(DISK1), "sudo mount %s /mnt/gentoo", disk);
          system(DISK1);
-         system("sudo wget -P /mnt/gentoo https://downloads.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-latest.tar.xz");
+         system("sudo wget -P /mnt/gentoo https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-latest.tar.xz");
          system("sudo tar xpvf /mnt/gentoo/stage3-*.tar.xz -C /mnt/gentoo --xattrs-include='*.*' --numeric-owner");
          system("./Chroot");
 return 0;
