@@ -7,7 +7,7 @@ int main() {
     int kernel;
     char GRUB[100];
     char username [64];
-    char cmd[100];
+    char cmd[256];
     
   system("emerge-webrsync");
   printf("which kernel you want to run?\n");
@@ -34,14 +34,14 @@ int main() {
             break;
            case 3:
             printf("applying kernel!\n");
-            system("sudo cp /boot/vmlinuz* /mnt/gentoo/boot/");
+            system("sudo cp /boot/vmlinuz* /boot/");
             printf("kernel applied!\n");
             break;
            default:
             printf("option not recognised");
             break;
   }
-  printf("you want to install GRUB?\n");
+  printf("you want to install GRUB?:- ");
   scanf("%s", GRUB);
   if (strcmp(GRUB, "yes") == 0) {
            printf("installing GRUB!\n");
@@ -51,17 +51,17 @@ int main() {
            system("grub-mkconfig -o /boot/grub/grub.cfg");
   }
   else {
-      return 0;
+      printf("ehh skipping then, add later");
   }
   printf("installing firmware....\n");
   system("emerge sys-kernel/linux-firmware");
   printf(" enter your root password!\n");
   system("passwd root");
 
-  printf("enter your username pls\n");
-  scanf("%s", username);
+  printf("enter your username pls:- ");
+  scanf("%63s", username);
 
-  snprintf(cmd, sizeof(cmd), "useradd -m -G wheel,audio,video -s /bin/bash %s", username);
+  snprintf(cmd, sizeof(cmd), "useradd -m -G wheel,audio,video,input -s /bin/bash %s", username);
   system(cmd);
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
