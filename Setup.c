@@ -46,6 +46,7 @@ int main() {
     char cmd[256];
     
   system("emerge-webrsync");
+  setup_make_conf();
   printf("which kernel you want to run?\n");
   printf("1. gentoo-kernel-bin\n");
   printf("2. zenkernel\n");
