@@ -69,9 +69,7 @@ int main() {
             system("genkernel all");
             break;
            case 3:
-            printf("applying kernel!\n");
-            system("sudo cp /boot/vmlinuz* /boot/");
-            printf("kernel applied!\n");
+            printf("LiveGUI kernel copying isn't implemented yet.\n");
             break;
            default:
             printf("option not recognised");
@@ -101,6 +99,7 @@ int main() {
 
   snprintf(cmd, sizeof(cmd), "useradd -m -G wheel,audio,video,input -s /bin/bash %s", username);
   system(cmd);
+  system("passwd %s", username);
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
 }
