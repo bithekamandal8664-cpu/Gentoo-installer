@@ -44,6 +44,8 @@ int main() {
     char GRUB[100];
     char username [64];
     char cmd[256];
+    char EFI[256];
+    char efi[100];
     
   system("emerge-webrsync");
   setup_make_conf();
@@ -56,7 +58,7 @@ int main() {
   switch (kernel) {
            case 1:
             printf("installing kernel!\n");
-            system("mkdir -p /etc/portage/package.use");
+            system("mkdir -p /etc/portage/package.accept_keywords");
             system("echo 'sys-kernel/installkernel dracut' >> /etc/portage/package.use/installkernel");
             system("emerge --autounmask-write=y --autounmask-continue sys-kernel/gentoo-kernel-bin");
             break;
@@ -77,11 +79,14 @@ int main() {
             break;
   }
   printf("you want to install GRUB?:- ");
-  scanf("%s", GRUB);
+  scanf("%99s", GRUB);
   if (strcmp(GRUB, "yes") == 0) {
            printf("installing GRUB!\n");
            system("mkdir -p /boot/efi");
-           system("mountpoint -q /boot/efi || mount /dev/sda1 /boot/efi");
+           printf("enter your EFI partition: ");
+           scanf("%s", EFI);
+           snprintf(efi, sizeof(efi), "mountpoint -q /boot/efi || mount %s /boot/efi", EFI);
+           system(efi);
            system("emerge sys-boot/grub");
            printf("applying grub\n");
            system("grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Gentoo_New");
