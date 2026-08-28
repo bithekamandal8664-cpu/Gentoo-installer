@@ -19,7 +19,9 @@ int main() {
   switch (kernel) {
            case 1:
             printf("installing kernel!\n");
-            system("emerge sys-kernel/gentoo-kernel-bin");
+            system("mkdir -p /etc/portage/package.use");
+            system("echo 'sys-kernel/installkernel dracut' >> /etc/portage/package.use/installkernel");
+            system("emerge --autounmask-write=y --autounmask-continue sys-kernel/gentoo-kernel-bin");
             break;
            case 2:
             printf("installing kernel!\n");
