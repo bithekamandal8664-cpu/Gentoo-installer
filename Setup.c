@@ -25,6 +25,7 @@ int main() {
             break;
            case 2:
             printf("installing kernel!\n");
+            system("mkdir -p /etc/portage/package.use");
             system("echo \"sys-kernel/zen-sources ~amd64\" >> /etc/portage/package.accept_keywords/zen-kernel");
             system("emerge sys-kernel/zen-sources");
             system("emerge sys-kernel/genkernel");
@@ -57,7 +58,7 @@ int main() {
   printf(" enter your root password!\n");
   system("passwd root");
 
-  printf("enter your username pls"\n);
+  printf("enter your username pls\n");
   scanf("%s", username);
 
   snprintf(cmd, sizeof(cmd), "useradd -m -G wheel,audio,video -s /bin/bash %s", username);
