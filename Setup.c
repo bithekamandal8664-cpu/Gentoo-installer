@@ -46,6 +46,7 @@ int main() {
     char cmd[256];
     char EFI[256];
     char efi[100];
+    char username1[100];
     
   system("emerge-webrsync");
   setup_make_conf();
@@ -105,7 +106,8 @@ int main() {
 
   snprintf(cmd, sizeof(cmd), "useradd -m -G wheel,audio,video,input -s /bin/bash %s", username);
   system(cmd);
-  system("passwd %s", username);
+  snprintf(username1, sizeof(username1),"passwd %s", username);
+  system(username1);
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
 }
