@@ -65,7 +65,7 @@ int main() {
             break;
            case 2:
             printf("installing kernel!\n");
-            system("mkdir -p /etc/portage/package.use");
+            system("mkdir -p /etc/portage/package.accept_keywords");
             system("echo \"sys-kernel/zen-sources ~amd64\" >> /etc/portage/package.accept_keywords/zen-kernel");
             system("emerge sys-kernel/zen-sources");
             system("emerge sys-kernel/genkernel");
