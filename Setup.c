@@ -113,9 +113,9 @@ int main() {
   printf("\nDo you want to install any other thing? (type if yes): ");
   fgets(pkgs, sizeof(pkgs), stidin);
   pkgs[strlen(pkgs) -1] = '\0';
-  snprintf(PKGS, sizof(PKGS), "ACCEPT_KEYWORDS=\"~amd64\" emerge %s", pkgs);
+  snprintf(PKGS, sizeof(PKGS), "ACCEPT_KEYWORDS=\"~amd64\" emerge %s", pkgs);
     
-  system(pkgs);
+  system(PKGS);
   
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
