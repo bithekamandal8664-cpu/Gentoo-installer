@@ -48,8 +48,8 @@ int main() {
     char efi[100];
     char username1[100];
     char pkgs[10000];
-    PKGS[10000];
-    eselect[200];
+    char PKGS[10000];
+    char eselect[200];
     
   system("emerge-webrsync");
   setup_make_conf();
@@ -112,7 +112,7 @@ int main() {
   snprintf(username1, sizeof(username1),"passwd %s", username);
   system(username1);
   printf("\nDo you want to install any other thing? (type if yes): ");
-  fgets(pkgs, sizeof(pkgs), stidin);
+  fgets(pkgs, sizeof(pkgs), stdin);
   pkgs[strlen(pkgs) -1] = '\0';
   snprintf(PKGS, sizeof(PKGS), "ACCEPT_KEYWORDS=\"~amd64\" emerge %s", pkgs);
     
