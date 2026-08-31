@@ -88,7 +88,7 @@ int main() {
            printf("installing GRUB!\n");
            system("mkdir -p /boot/efi");
            printf("enter your EFI partition: ");
-           scanf("%s", EFI);
+           scanf("%255s", EFI);
            snprintf(efi, sizeof(efi), "mountpoint -q /boot/efi || mount %s /boot/efi", EFI);
            system(efi);
            system("emerge sys-boot/grub");
