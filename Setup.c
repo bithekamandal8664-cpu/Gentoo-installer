@@ -49,6 +49,7 @@ int main() {
     char username1[100];
     char pkgs[10000];
     PKGS[10000];
+    eselect[200];
     
   system("emerge-webrsync");
   setup_make_conf();
@@ -116,6 +117,16 @@ int main() {
   snprintf(PKGS, sizeof(PKGS), "ACCEPT_KEYWORDS=\"~amd64\" emerge %s", pkgs);
     
   system(PKGS);
+  printf("its eselect time, do you want to add it? UwU\n");
+  printf("type here:- ");
+  fgets(eselect, sizeof(eselect), stdin);
+  eselect[strlen(eselect) -1] = '\0';
+  if (strcmp(eselect, "yes") == 0) {
+      system("./eselect");
+  }
+  if (strcmp(eselect, "no") == 0) {
+      printf("end then\n");
+  }
   
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
