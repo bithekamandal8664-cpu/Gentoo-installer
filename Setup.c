@@ -114,6 +114,8 @@ int main() {
   printf("\nDo you want to install any other thing? (type if yes): ");
   fgets(pkgs, sizeof(pkgs), stdin);
   pkgs[strlen(pkgs) -1] = '\0';
+  int c;
+  while ((c = getchar()) != '\n' && c != EOF);
   snprintf(PKGS, sizeof(PKGS), "ACCEPT_KEYWORDS=\"~amd64\" emerge %s", pkgs);
     
   system(PKGS);
