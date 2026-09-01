@@ -131,7 +131,16 @@ int main() {
   if (strcmp(eselect, "no") == 0) {
       printf("end then\n");
   }
-  
+  char GUI[100];
+    
+  printf("do you want GUI? (yes/no):- ");
+  scanf("%99s", GUI);
+  if (strcmp(GUI, "yes") == 0) {
+      system("./DE_WM");
+  }
+  else {
+  }
+    
   printf("\nYAY, INSTALLATION COMPLETED! YOU CAN NOW ENTER YOU GENTOO YIPPEE!!!\n");
 return 0;
 }
