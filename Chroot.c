@@ -24,9 +24,8 @@ int main() {
          system("sudo gcc /mnt/gentoo/root/Setup.c -o /mnt/gentoo/Setup");
          system("sudo cp ~/gentoo-installer/eselect.c /mnt/gentoo/eselect.c");
          system("sudo gcc /mnt/gentoo/eselect.c -o /mnt/gentoo/eselect");
+         system("sudo cp ~/gentoo-installer/DE_WM.c /mnt/gentoo/DE_WM.c");
+         system("sudo gcc /mnt/gentoo/DE_WM.c -o /mnt/gentoo/DE_WM");
          system("sudo chroot /mnt/gentoo /bin/bash -c \"source /etc/profile && export PS1='(chroot) $PS1' && /bin/bash\"");       
    return 0;        
-}        
-              
-                
-         
+}
