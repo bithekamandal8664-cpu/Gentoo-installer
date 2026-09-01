@@ -54,3 +54,8 @@ Clone the repository:
 wget https://raw.githubusercontent.com/bithekamandal8664-cpu/Gentoo-installer/refs/heads/main/linker.c 
 gcc linker.c -o linker
 ./linker
+```
+
+## RULE OF THE THUMB
+follow the instructions and be careful of what you choose! enjoy you installation! UwU
+
